@@ -30,7 +30,7 @@ class Mensagem{
             $this->nivel = 0;
         }
 
-        #definir dataCriacao com o NOW
+        $this->dataCriacao = (new \DateTime())->format('Y-m-d H:i:s');
     }    
 
     /**

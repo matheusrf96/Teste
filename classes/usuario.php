@@ -37,9 +37,8 @@ class Usuario{
         }
 
         $this->msgPanico = "Socorro!";
-        $this->ativo = TRUE;
-        
-        //definir data de criação
+        $this->ativo = TRUE;        
+        $this->dataCriacao = (new \DateTime())->format('Y-m-d H:i:s');
         //definir caminho da foto
 
     }

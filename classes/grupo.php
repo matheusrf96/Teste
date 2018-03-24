@@ -21,9 +21,9 @@ class Grupo{
             $this->descricao = $descricao;
         }
 
-        #definir número aleatório para codGrupo
+        $this->codigoGrupo = $this->id."-".rand(1000, 9999);
         $this->grupoAtivo = TRUE;
-        #definir data de criação para NOW
+        $this->dataCriacao = (new \DateTime())->format('Y-m-d H:i:s');
     }
 
     public function getId()
