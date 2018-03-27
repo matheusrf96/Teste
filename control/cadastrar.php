@@ -24,11 +24,9 @@ if(isset($_POST)){
                 '".$user->getSenha()."',
                 '".$user->getMsgPanico()."',
                 ".$user->getUsuarioAtivo().",
-                ".$user->getDataCriacao()."
+                NOW()
             )
         ");
-
-        #$db->execute();
 
         if(!$db->execute()){
             echo "Falhou :( <br />";
