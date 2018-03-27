@@ -10,11 +10,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $senha = md5($_POST['senha']);
     $result;
 
-    try{
-        $result = $db->query("SELECT id FROM usuario WHERE username = '".$username."' AND senha = '".$senha."'");
-    }catch(Exception $e){
-        echo "Erro no acesso ao banco :".$e->getMessage();
+    echo $username."<br />".$senha."<br />"."21232f297a57a5a743894a0e4a801fc3<br />";
+
+    $db->query("SELECT * FROM usuario WHERE username = ? AND senha = ?");
+    $db->bind(1, $username);
+    $db->bind(2, $senha);
+
+    if($result = $db->singleResult()){
+        echo "ok";
     }
+    else{
+        echo "<textarea>SELECT * FROM usuario WHERE username = '".$username."' AND senha = '".$senha."'</textarea>";
+    }
+
+    print_r($db->singleResult());
 
     $row = $db->singleResult();
     $active = $row['usuarioAtivo'];
@@ -26,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         header('location: main.php');
     }
     else{
-        echo "Login ou senha inválidos";
+        echo "<b>Login ou senha inválidos</b>";
     }
 }
 ?>
