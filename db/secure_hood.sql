@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `secure_hood`.`usuario` (
   `primeiroNome` VARCHAR(45) NULL,
   `ultimoNome` VARCHAR(45) NULL,
   `msgPanicoPadrao` TEXT NULL,
-  `usuarioAtivo` TINYINT(1) NULL,
+  `usuarioAtivo` INTEGER NULL,
   `dataCriacao` DATETIME NULL,
   `caminhoFotoPerfil` VARCHAR(255) NULL,
   PRIMARY KEY (`id`))

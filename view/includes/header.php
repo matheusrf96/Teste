@@ -1,5 +1,3 @@
-<?php require_once ROOT_PATH."config.php"; ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +6,5 @@
     <title>Securehood</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo ASSETS_PATH; ?>view/assets/css/style.css" />
-    <script src="main.js"></script>
 </head>
 <body>

@@ -12,32 +12,17 @@ class Usuario{
     private $dataCriacao;
     private $caminhoFotoPerfil;
 
-    public function __construct($user, $email, $senha, $pNome, $uNome, $msgPanico){
+    public function __construct($user, $email, $senha){
         // definir id
 
         if(strlen($user) > 0 && strlen($user) < 45){
-            $this->$username = $user;
+            $this->username = $user;
         }
 
         $this->email = $email;
         $this->senha = md5($senha);
-        
-        if(strlen($pNome) >= 45){
-            $this->primeiroNome = substr($pNome, 0, 44);
-        }
-        else{
-            $this->primeiroNome = $pNome;
-        }
-
-        if(strlen($uNome) >= 45){
-            $this->ultimoNome = substr($uNome, 0, 44);
-        }
-        else{
-            $this->ultimoNome = $uNome;
-        }
-
         $this->msgPanico = "Socorro!";
-        $this->ativo = TRUE;        
+        $this->usuarioAtivo = 1;        
         $this->dataCriacao = (new \DateTime())->format('Y-m-d H:i:s');
         //definir caminho da foto
 
@@ -78,6 +63,9 @@ class Usuario{
         return $this;
     }
 
+    public function getSenha(){
+        return $this->senha;
+    }
     public function setSenha($senha)
     {
         $this->senha = md5($senha);
@@ -154,6 +142,20 @@ class Usuario{
         $this->caminhoFotoPerfil = $caminhoFotoPerfil;
 
         return $this;
+    }
+
+    public function toString(){
+        return "
+            Username: ".$this->getUsername()."<br />
+            E-mail: ".$this->getEmail()."<br />
+            Senha(MD5): ".$this->getSenha()."<br />
+            Primeiro Nome: ".$this->getPrimeiroNome()."<br />
+            Último Nome: ".$this->getUltimoNome()."<br />
+            Mensagem de Pânico: ".$this->getMsgPanico()."<br />
+            Usuário Ativo: ".$this->getUsuarioAtivo()."<br />
+            Data de Criação: ".$this->getDataCriacao()."<br />
+            Caminho da Foto de Perfil: ".$this->getCaminhoFotoPerfil()."<br />
+        ";
     }
 }
 
