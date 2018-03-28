@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $senha = md5($_POST['senha']);
     $result;
 
-    echo $username."<br />".$senha."<br />"."21232f297a57a5a743894a0e4a801fc3<br />";
+    #echo $username."<br />".$senha."<br />"."21232f297a57a5a743894a0e4a801fc3<br />";
 
     $db->query("SELECT * FROM usuario WHERE username = ? AND senha = ?");
     $db->bind(1, $username);
