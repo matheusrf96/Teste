@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once "../config.php";
 require_once "../db/db.php";
 
@@ -10,32 +12,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $senha = md5($_POST['senha']);
     $result;
 
-    #echo $username."<br />".$senha."<br />"."21232f297a57a5a743894a0e4a801fc3<br />";
-
-    $db->query("SELECT * FROM usuario WHERE username = ? AND senha = ?");
+    $db->query("SELECT id FROM usuario WHERE username = ? AND senha = ?");
     $db->bind(1, $username);
     $db->bind(2, $senha);
 
     if($result = $db->singleResult()){
-        echo "ok";
+        $db->query("SELECT * FROM usuario WHERE id = ?");
+        $db->bind(1, $result['id']);
+        $row = $db->singleResult();
+        
+        $active = $row['usuarioAtivo'];
+
+        if($active != 0){
+            $_SESSION['usuario'] = $row;
+
+            header('location: ../view/main.php');
+        }
+        else{
+            echo "<b>Login ou senha inválidos</b>";
+        }
     }
     else{
         echo "<textarea>SELECT * FROM usuario WHERE username = '".$username."' AND senha = '".$senha."'</textarea>";
-    }
-
-    print_r($db->singleResult());
-
-    $row = $db->singleResult();
-    $active = $row['usuarioAtivo'];
-
-    if($active != 0){
-        session_register("username");
-        $_SESSION['login_user'] = $username;
-
-        header('location: main.php');
-    }
-    else{
-        echo "<b>Login ou senha inválidos</b>";
     }
 }
 ?>

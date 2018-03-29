@@ -45,21 +45,3 @@ class DB{
 		return $this->stmt->fetch(PDO::FETCH_ASSOC);
 	}
 }
-
-/*
-$db->query('SELECT * FROM mensagem');
-$rows = $db->resultSet();
-
-echo "TESTE BANCO<br /><br />";
-
-foreach ($rows as $value) {
-    echo "
-        ID: ".$value['id']."<br />
-        Título: ".$value['titulo']."<br />
-        Mensagem: ".$value['mensagem']."<br />
-        Nível: ".$value['nivel']."<br />
-        Data de Criação: ".$value['dataCriacao']."<br />
-        <br />
-    ";
-}
-*/
