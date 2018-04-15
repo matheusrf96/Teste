@@ -32,7 +32,12 @@ if(isset($_POST)){
             echo "Falhou :( <br />";
         }
 
-        echo "<b>A operação foi realizada com sucesso!</b>";
+        echo "<b>A operação foi realizada com sucesso!</b><br /><br />
+            Se você não for redirecionado para a página de login 
+            <a href='../index.php'> clique aqui</a>!
+        ";
+
+        header("refresh:3;url=../index.php");
     }catch(Exception $e){
         echo "Erro de conexão com o banco: ".$e->getMessage();
     }
