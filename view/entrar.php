@@ -1,5 +1,5 @@
 <?php 
-require_once "view/includes/header.php"; 
+require_once "includes/header.php"; 
 
 ?>
 
@@ -12,4 +12,4 @@ require_once "view/includes/header.php";
 
 <p>Não possui conta? <a href="view/cadastro.php">Registre-se</a> já!</p>
 
-<?php require_once ROOT_PATH."view/includes/footer.php"; ?>
+<?php require_once "includes/footer.php"; ?>

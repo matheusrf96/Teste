@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once "config.php";
 
 require "model/grupo.php";
