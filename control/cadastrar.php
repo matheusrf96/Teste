@@ -16,7 +16,7 @@ if(isset($_POST)){
     echo $user->toString()."<br />";
 
     try{
-        $db->query("
+        $sql = "
             INSERT INTO usuario(username, email, senha, msgPanicoPadrao, usuarioAtivo, dataCriacao) VALUES
             (
                 '".$user->getUsername()."',
@@ -25,19 +25,43 @@ if(isset($_POST)){
                 '".$user->getMsgPanico()."',
                 ".$user->getUsuarioAtivo().",
                 NOW()
+            );
+
+            SET @ultimo_usuario = LAST_INSERT_ID();
+
+            INSERT INTO grupo(nomeGrupo, grupoAtivo, dataCriacao) VALUES
+            (
+                'Grupo Padrão',
+                TRUE,
+                NOW()
+            );
+
+            SET @ultimo_grupo = LAST_INSERT_ID();
+
+            INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito) VALUES
+            (
+                @ultimo_usuario,
+                @ultimo_grupo,
+                TRUE,
+                NOW(),
+                TRUE
             )
-        ");
+        ";
+
+        $db->query($sql);
 
         if(!$db->execute()){
             echo "Falhou :( <br />";
+            echo "<textarea>".$sql."</textarea>";
         }
+        else{
+            echo "<b>A operação foi realizada com sucesso!</b><br /><br />
+                Se você não for redirecionado para a página de login 
+                <a href='../index.php'> clique aqui</a>!
+            ";
 
-        echo "<b>A operação foi realizada com sucesso!</b><br /><br />
-            Se você não for redirecionado para a página de login 
-            <a href='../index.php'> clique aqui</a>!
-        ";
-
-        header("refresh:3;url=../index.php");
+            header("refresh:3;url=../index.php");
+        }
     }catch(Exception $e){
         echo "Erro de conexão com o banco: ".$e->getMessage();
     }

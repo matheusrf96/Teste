@@ -15,4 +15,5 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo ASSETS_PATH; ?>view/assets/css/style.css" />
 </head>
 <body>
-    <p class="red-bookmark">HEADER</p>
+    <p class="red-bookmark">[HEADER]</p>
+    <div class="container">

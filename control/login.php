@@ -30,10 +30,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
         else{
             echo "<b>Login ou senha inválidos</b>";
+            header("refresh:3;url=../index.php");
         }
     }
     else{
-        echo "<textarea>SELECT * FROM usuario WHERE username = '".$username."' AND senha = '".$senha."'</textarea>";
+        #echo "<textarea>SELECT * FROM usuario WHERE username = '".$username."' AND senha = '".$senha."'</textarea>";
+        echo "Login inválido. Tente novamente!";
+        header("refresh:3;url=../index.php");
     }
 }
 ?>
