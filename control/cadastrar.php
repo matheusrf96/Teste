@@ -31,7 +31,7 @@ if(isset($_POST)){
 
             INSERT INTO grupo(nomeGrupo, grupoAtivo, dataCriacao) VALUES
             (
-                'Grupo Padrão',
+                'Padrao',
                 TRUE,
                 NOW()
             );
@@ -44,7 +44,7 @@ if(isset($_POST)){
                 @ultimo_grupo,
                 TRUE,
                 NOW(),
-                TRUE
+                'A'
             )
         ";
 

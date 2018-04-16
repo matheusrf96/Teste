@@ -23,8 +23,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         
         $active = $row['usuarioAtivo'];
 
+        $db->query("
+            SELECT grupo_id FROM usuario_grupo 
+            INNER JOIN grupo ON usuario_grupo.grupo_id = grupo.id
+            WHERE usuario_grupo.usuario_id = ".$row['id']." 
+            AND usuario_grupo.admin = 1
+            AND grupo.nomeGrupo = 'Padrao'
+        ");
+        $grupo = $db->singleResult();
+
         if($active != 0){
             $_SESSION['usuario'] = $row;
+            $_SESSION['usuario']['grupoPadrao'] = $grupo['grupo_id'];
 
             header('location: ../view/main.php');
         }
