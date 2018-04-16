@@ -42,5 +42,9 @@ if(isset($_POST)){
             echo "<textarea>".$sql."</textarea>";
         }
     }
+    else{
+        echo "Nenhum usuário encontrado.";
+        header("refresh:3;url=../index.php");
+    }
 }
 ?>

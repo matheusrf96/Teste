@@ -1,6 +1,11 @@
 <?php 
+
 require_once "includes/header.php"; 
 
+if(isset($_SESSION['usuario'])){
+    header("Location: view/main.php");
+}
+else{
 ?>
 
 <h1>Hello World!</h1>
@@ -12,4 +17,9 @@ require_once "includes/header.php";
 
 <p>Não possui conta? <a href="view/cadastro.php">Registre-se</a> já!</p>
 
-<?php require_once "includes/footer.php"; ?>
+<?php 
+
+}
+
+require_once "includes/footer.php";
+?>
