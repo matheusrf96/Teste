@@ -18,9 +18,14 @@ if(isset($_SESSION['usuario'])){ ?>
                 <input type="hidden" name="grupo" id="grupo" value="<?php echo $_SESSION['usuario']['grupoPadrao']; ?>" />
                 <input type="submit" value="Solicitar" />
             </form>
+
+            <br />
+
+            <?php require_once "../control/listar-contatos.php"; ?>
         </div>
         <div class="col">
             <h3>Solicitação de contatos: </h3>
+            <?php require_once "../control/solicitacoes-pendentes.php"; ?>
         </div>
     </div>
 

@@ -28,6 +28,7 @@ if(isset($_POST)){
             );
 
             SET @ultimo_usuario = LAST_INSERT_ID();
+            SET @uu = LAST_INSERT_ID();
 
             INSERT INTO grupo(nomeGrupo, grupoAtivo, dataCriacao) VALUES
             (
@@ -38,13 +39,14 @@ if(isset($_POST)){
 
             SET @ultimo_grupo = LAST_INSERT_ID();
 
-            INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito) VALUES
+            INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito, usuario_solicitante) VALUES
             (
                 @ultimo_usuario,
                 @ultimo_grupo,
                 TRUE,
                 NOW(),
-                'A'
+                'A',
+                @uu
             )
         ";
 

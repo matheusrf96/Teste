@@ -9,6 +9,7 @@ $db = new DB();
 
 if(isset($_POST)){
     $contato = $_POST['contato'];
+    $solicitante = $_SESSION['usuario']['id'];
     $grupo = $_POST['grupo'];
     $result;
 
@@ -17,13 +18,14 @@ if(isset($_POST)){
 
     if($result = $db->singleResult()){
         $sql = "
-            INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito) VALUES
+            INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito, usuario_solicitante) VALUES
             (
                 '".$result['id']."',
                 '".$grupo."',
                 0,
                 NOW(),
-                'P'
+                'P',
+                ".$solicitante."
             )
         ";
 
