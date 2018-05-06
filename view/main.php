@@ -8,7 +8,19 @@ if(isset($_SESSION['usuario'])){ ?>
 
     <div class="row">
         <div class="col">
+            <h3>Enviar Alerta:</h3>
+
+            <form action="../control/enviar-alerta.php" method="POST">
+                <input type="hidden" name="alerta" id="alerta" value="<?php echo $_SESSION['usuario']['msgPanicoPadrao']; ?>" />
+                <input type="submit" value="Enviar" />
+            </form>
+
+            <br />
             <h3>Lista de alertas:</h3>
+
+            <ul>
+                <?php require_once "../control/listar-alertas.php"; ?>
+            </ul>
         </div>
         <div class="col">
             <h3>Lista de contatos:</h3>
