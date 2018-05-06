@@ -4,7 +4,7 @@ require_once "includes/header.php";
 
 if(isset($_SESSION['usuario'])){ ?>
 
-    <p>Hello, <?php echo $_SESSION['usuario']['username']; ?>! <a href="../control/logout.php">Logout</a></p>
+    <p>Hello, <a href="perfil.php?id=<?php echo $_SESSION['usuario']['id']; ?>"><?php echo $_SESSION['usuario']['username']; ?></a>! <a href="../control/logout.php">Logout</a></p>
 
     <div class="row">
         <div class="col">

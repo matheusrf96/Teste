@@ -22,8 +22,7 @@ class Usuario{
         $this->email = $email;
         $this->senha = md5($senha);
         $this->msgPanico = "Socorro!";
-        $this->usuarioAtivo = 1;        
-        $this->dataCriacao = (new \DateTime())->format('Y-m-d H:i:s');
+        $this->usuarioAtivo = 1;
         //definir caminho da foto
 
     }
