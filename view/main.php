@@ -23,10 +23,10 @@ if(isset($_SESSION['usuario'])){ ?>
 
             <?php require_once "../control/listar-contatos.php"; ?>
         </div>
-        <div class="col">
+        <!-- <div class="col">
             <h3>Solicitação de contatos: </h3>
             <?php require_once "../control/solicitacoes-pendentes.php"; ?>
-        </div>
+        </div> -->
     </div>
 
 <?php 
