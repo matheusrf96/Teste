@@ -1,8 +1,38 @@
 body{
     color: #333;
 }
-.red-bookmark{
-    color: red;
+
+/* Header ===== */
+
+.header{
+    background-color: #0077CC;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.navbar-brand, .navbar-brand:hover{
+    font-size: 26px;
+    font-weight: 600;
+    color: white;
+    margin: 0 auto;
+}
+
+/* Content ===== */
+
+#botao-panico{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #32db64;
+    margin-top: 7px;
+    border: solid;
+    border-width: 3px;
+    border-color: #222;
+    transition: background-color 0.5s ease-in-out;
+}
+
+#botao-panico:hover{
+    background-color: #f53d3d;
 }
 
 .box-alerta{
@@ -20,6 +50,7 @@ body{
 
 .lida{
     background-color: #7fe883;
+    transition: background-color 0.75s ease-in-out;
 }
 .lida:hover{
     background-color: green;
@@ -28,8 +59,11 @@ body{
 
 .nao-lida{
     background-color: #e87e7e;
+    transition: background-color 0.75 ease-in-out;
 }
 .nao-lida:hover{
     background-color: red;
     text-decoration: none;
 }
+
+/* Footer ===== */

@@ -12,7 +12,7 @@ if(isset($_SESSION['usuario'])){ ?>
 
             <form action="../control/enviar-alerta.php" method="POST">
                 <input type="hidden" name="alerta" id="alerta" value="<?php echo $_SESSION['usuario']['msgPanicoPadrao']; ?>" />
-                <input type="submit" value="Enviar" />
+                <div id="botao-falso"><input type="submit" id="botao-panico"></button></div>
             </form>
 
             <br />

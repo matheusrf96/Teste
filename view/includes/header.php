@@ -17,5 +17,10 @@ session_start();
     <script src="/tcc/view/assets/js/main.js"></script>
 </head>
 <body>
-    <p class="red-bookmark">[HEADER]</p>
+    <nav class="navbar header">
+        <div class="container">
+            <a class="navbar-brand" href="#">Securehood</a>
+        </div>
+    </nav>
+
     <div class="container">
