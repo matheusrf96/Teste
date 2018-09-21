@@ -15,6 +15,7 @@ $db->query("
     INNER JOIN usuario ON mensagem_usuario.remetente_id = usuario.id
     WHERE mensagem_usuario.destinatario_id = ".$_SESSION['usuario']['id']."
     ORDER BY mensagem_usuario.id DESC
+    LIMIT 5
 ");
 
 $alertas = $db->resultSet();

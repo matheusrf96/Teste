@@ -8,15 +8,24 @@ if(isset($_SESSION['usuario'])){
 else{
 ?>
 
-<h1>Hello World!</h1>
-<form action="control/login.php" method="post">
-    Username: <input required type="text" name="username" /><br />
-    Senha: <input requided type="password" name="senha" /><br />
-    <input type="submit" value="Enviar" />
-</form>
+<div class="form-login text-center">
+    <h1 class="login-title">{Logo}</h1>
 
-<p>Não possui conta? <a href="view/cadastro.php">Registre-se</a> já!</p>
+    <form action="control/login.php" method="post">
+        <div class="form-group row">
+            <label for="username">Username: </label>
+            <input class="form-control" required type="text" name="username" id="username" />
+        </div>
+        <div class="form-group row">
+            <label for="senha">Senha: </label>
+            <input class="form-control" requided type="password" name="senha" id="senha" />
+        </div>
+        
+        <input class="btn btn-primary button-login" type="submit" value="Enviar" />
+    </form>
 
+    <p>Não possui conta? <a href="view/cadastro.php">Registre-se</a> já!</p>
+</div>
 <?php 
 
 }

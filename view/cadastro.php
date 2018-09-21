@@ -1,14 +1,27 @@
 <?php require_once "includes/header.php"; ?>
 
-<h1>Cadastro</h1>
+<!-- <a href="../index.php">Voltar</a> -->
 
-<a href="../index.php">Voltar</a>
+<div class="form-login text-center">
 
-<form action="../control/cadastrar.php" method="post">
-    Username: <input required type="text" name="username" id="username" /><br />
-    E-mail: <input required type="email" name="email" id="email" /><br />
-    Senha: <input required type="password" name="senha" id="senha" /><br />
-    <input type="submit" value="Enviar" />
-</form>
+    <h1>Cadastro</h1>
 
+    <form action="../control/cadastrar.php" method="post">
+        <div class="form-group row">
+            <label for="username">Username: </label>
+            <input class="form-control" required type="text" name="username" id="username" />
+        </div>
+        <div class="form-group row">
+            <label for="email">E-mail: </label>
+            <input class="form-control" requided type="email" name="email" id="email" />
+        </div>
+        <div class="form-group row">
+            <label for="senha">Senha: </label>
+            <input class="form-control" requided type="password" name="senha" id="senha" />
+        </div>
+        
+        <input class="btn btn-primary button-login" type="submit" value="Cadastrar" />
+    </form>
+
+</div>
 <?php require_once "includes/footer.php"; ?>

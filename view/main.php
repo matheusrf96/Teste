@@ -4,7 +4,7 @@ require_once "includes/header.php";
 
 if(isset($_SESSION['usuario'])){ ?>
 
-    <p>Hello, <a href="perfil.php?id=<?php echo $_SESSION['usuario']['id']; ?>"><?php echo $_SESSION['usuario']['username']; ?></a>! <a href="../control/logout.php">Logout</a></p>
+    <p class="float-right">Hello, <a href="perfil.php?id=<?php echo $_SESSION['usuario']['id']; ?>"><?php echo $_SESSION['usuario']['username']; ?></a>! <a href="../control/logout.php">Logout</a></p>
 
     <div class="row">
         <div class="col">
@@ -25,10 +25,10 @@ if(isset($_SESSION['usuario'])){ ?>
         <div class="col">
             <h3>Lista de contatos:</h3>
 
-            <form action="../control/adicionar-contato.php" method="POST">
-                <input type="text" name="contato" id="contato" placeholder="Usuário a ser adicionado" />
+            <form class="form-group" action="../control/adicionar-contato.php" method="POST">
+                <input class="form-control input-contato" type="text" name="contato" id="contato" placeholder="Usuário a ser adicionado" />
                 <input type="hidden" name="grupo" id="grupo" value="<?php echo $_SESSION['usuario']['grupoPadrao']; ?>" />
-                <input type="submit" value="Adicionar" />
+                <input class="btn btn-primary" type="submit" value="Adicionar" />
             </form>
 
             <br />

@@ -5,7 +5,7 @@ body{
 /* Header ===== */
 
 .header{
-    background-color: #0077CC;
+    background-color: #0069D9;
     color: #ffffff;
     margin-bottom: 20px;
 }
@@ -19,6 +19,33 @@ body{
 
 /* Content ===== */
 
+.btn-primary{
+    border-width: 2px;
+    transition: background-color 0.75s ease-in-out,
+                color 0.75s ease-in-out,
+                border-color 0.75s ease-in-out;
+}
+
+.btn-primary:hover{
+    background-color: white;
+    color: #0069D9;
+    border-color: #0069D9;
+}
+
+.login-title{
+    margin-bottom: 50px;
+}
+
+.form-login{
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 30%;
+}
+
+.button-login{
+    margin-bottom: 20px;
+}
+
 #botao-panico{
     width: 150px;
     height: 150px;
@@ -31,8 +58,14 @@ body{
     transition: background-color 0.5s ease-in-out;
 }
 
-#botao-panico:hover{
+#botao-panico:hover, #botao-panico:focus{
     background-color: #f53d3d;
+    outline:0;
+}
+
+.input-contato{
+    width: 250px;
+    margin-bottom: 10px;
 }
 
 .box-alerta{
@@ -47,22 +80,21 @@ body{
     text-decoration: none;
 }
 
-
 .lida{
-    background-color: #7fe883;
+    background-color: #32db64;
     transition: background-color 0.75s ease-in-out;
 }
 .lida:hover{
-    background-color: green;
+    background-color: #228B22;
     text-decoration: none;
 }
 
 .nao-lida{
     background-color: #e87e7e;
-    transition: background-color 0.75 ease-in-out;
+    transition: background-color 0.75s ease-in-out;
 }
 .nao-lida:hover{
-    background-color: red;
+    background-color: #f53d3d;
     text-decoration: none;
 }
 
