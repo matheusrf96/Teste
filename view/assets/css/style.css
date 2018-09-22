@@ -1,5 +1,6 @@
 body{
     color: #333;
+    padding-left: -5px;
 }
 
 /* Header ===== */
@@ -15,6 +16,13 @@ body{
     font-weight: 600;
     color: white;
     margin: 0 auto;
+}
+
+.arrow-left{
+    position: absolute;
+    margin-top: -13px;
+    width: 35px;
+    height: 30px;
 }
 
 /* Content ===== */
@@ -46,6 +54,20 @@ body{
     margin-bottom: 20px;
 }
 
+#box-foto-perfil{
+    margin: 0 auto;
+}
+
+#foto-perfil{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: solid;
+    border-width: 3px;
+    border-radius: 12px;
+    border-color: #0069D9;
+}
+
 #botao-panico{
     width: 150px;
     height: 150px;
@@ -73,6 +95,20 @@ body{
     margin: 5px;
     border: solid;
     border-radius: 7px;
+}
+
+.box-alerta-detalhes{
+    padding-top: 50px;
+    padding-bottom: 50px;   
+    margin: 5px;
+    border: solid;
+    border-radius: 7px;
+}
+
+#data-alerta{
+    margin-top: -40px;
+    font-size: 16px;
+    color: gray;
 }
 
 .alerta-item a:link, .alerta-item a:visited{

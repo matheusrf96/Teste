@@ -18,6 +18,11 @@ session_start();
 </head>
 <body>
     <nav class="navbar header">
+        <?php 
+        if($_SERVER['REQUEST_URI'] != '/tcc/view/main.php' && $_SERVER['REQUEST_URI'] != '/tcc/index.php'){
+            echo "<a href='/tcc/view/main.php'><img class='arrow-left' src='/tcc/view/assets/img/arrow-left.png' /></a>";
+        }
+        ?>
         <div class="container">
             <a class="navbar-brand" href="#">Securehood</a>
         </div>

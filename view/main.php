@@ -3,7 +3,6 @@
 require_once "includes/header.php"; 
 
 if(isset($_SESSION['usuario'])){ ?>
-
     <p class="float-right">Hello, <a href="perfil.php?id=<?php echo $_SESSION['usuario']['id']; ?>"><?php echo $_SESSION['usuario']['username']; ?></a>! <a href="../control/logout.php">Logout</a></p>
 
     <div class="row">
