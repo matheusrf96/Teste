@@ -28,4 +28,5 @@ session_start();
         </div>
     </nav>
 
-    <div class="container">
+    <div id="wrap">
+    <div class="container" id="main">
