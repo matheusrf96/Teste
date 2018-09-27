@@ -21,7 +21,7 @@ else{
             <input class="form-control" requided type="password" name="senha" id="senha" />
         </div>
         
-        <input class="btn btn-primary button-login" type="submit" value="Enviar" />
+        <input class="btn btn-primary button-login" type="submit" value="Entrar" />
     </form>
 
     <p>Não possui conta? <a href="view/cadastro.php">Registre-se</a> já!</p>

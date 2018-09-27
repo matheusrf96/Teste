@@ -26,7 +26,7 @@ if(isset($_SESSION['usuario'])){ ?>
 
             <form class="form-group" action="../control/adicionar-contato.php" method="POST">
                 <input class="form-control input-contato" type="text" name="contato" id="contato" placeholder="Usuário a ser adicionado" />
-                <input type="hidden" name="grupo" id="grupo" value="<?php echo $_SESSION['usuario']['grupoPadrao']; ?>" />
+                <!-- <input type="hidden" name="grupo" id="grupo" value="<?php echo $_SESSION['usuario']['grupoPadrao']; ?>" /> -->
                 <input class="btn btn-primary" type="submit" value="Adicionar" />
             </form>
 

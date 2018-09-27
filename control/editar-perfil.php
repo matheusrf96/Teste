@@ -51,19 +51,23 @@ if(isset($_GET) && isset($_POST)){
             $db->bind(1, $id);
             $row = $db->singleResult();
 
-            $db->query("
-                SELECT grupo_id FROM usuario_grupo 
-                INNER JOIN grupo ON usuario_grupo.grupo_id = grupo.id
-                WHERE usuario_grupo.usuario_id = ".$row['id']." 
-                AND usuario_grupo.admin = 1
-                AND grupo.nomeGrupo = 'Padrao'
-            ");
-            if($grupo = $db->singleResult()){
-                $_SESSION['usuario'] = $row;
-                $_SESSION['usuario']['grupoPadrao'] = $grupo['grupo_id'];
+            // $db->query("
+            //     SELECT grupo_id FROM usuario_grupo 
+            //     INNER JOIN grupo ON usuario_grupo.grupo_id = grupo.id
+            //     WHERE usuario_grupo.usuario_id = ".$row['id']." 
+            //     AND usuario_grupo.admin = 1
+            //     AND grupo.nomeGrupo = 'Padrao'
+            // ");
 
-                header("refresh:3; url=../view/perfil.php?id=".$id);
-            }
+            // if($grupo = $db->singleResult()){
+            //     $_SESSION['usuario'] = $row;
+            //     $_SESSION['usuario']['grupoPadrao'] = $grupo['grupo_id'];
+
+            //     header("refresh:3; url=../view/perfil.php?id=".$id);
+            // }
+
+            $_SESSION['usuario'] = $row;
+            header("refresh:3; url=../view/perfil.php?id=".$id);
         }
         else{
             echo "Ocorreu um erro!";

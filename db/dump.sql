@@ -50,9 +50,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `securehood`.`usuario_grupo`
+-- Table `securehood`.`usuario_contato`
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS `securehood`.`usuario_grupo` (
+-- CREATE TABLE IF NOT EXISTS `securehood`.`usuario_contato` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `usuario_id` INT NOT NULL,
 --   `grupo_id` INT NOT NULL,
@@ -81,6 +81,16 @@ ENGINE = InnoDB;
 --     ON UPDATE NO ACTION)
 -- ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `securehood`.`usuario_contato` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `remetente` INT NOT NULL,
+  `destinatario` INT NOT NULL,
+  `dataEntrada` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`remetente`) REFERENCES usuario(`id`),
+  FOREIGN KEY (`destinatario`) REFERENCES usuario(`id`)
+)
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `securehood`.`mensagem`

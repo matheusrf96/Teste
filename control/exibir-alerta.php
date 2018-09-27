@@ -13,7 +13,8 @@ if(isset($_GET)){
     if($result['destinatario_id'] == $_SESSION['usuario']['id']){
         $db->query("
             UPDATE mensagem_usuario
-            SET lida = 1
+            SET lida = 1,
+            dataLida = NOW()
             WHERE id = ?
         ");
         $db->bind(1, $_GET['id']);

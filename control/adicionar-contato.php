@@ -10,7 +10,7 @@ $db = new DB();
 if(isset($_POST)){
     $contato = $_POST['contato'];
     $solicitante = $_SESSION['usuario']['id'];
-    $grupo = $_POST['grupo'];
+    // $grupo = $_POST['grupo'];
     $result;
 
     $db->query("SELECT id FROM usuario WHERE username = ?");
@@ -18,9 +18,9 @@ if(isset($_POST)){
 
     if($result = $db->singleResult()){
         $db->query("
-            SELECT id FROM usuario_grupo
-            WHERE usuario_grupo.usuario_id = ".$result['id']."
-            AND usuario_grupo.usuario_solicitante = ".$_SESSION['usuario']['id']."
+            SELECT id FROM usuario_contato
+            WHERE destinatario = ".$result['id']."
+            AND remetente = ".$_SESSION['usuario']['id']."
         ");
 
         if($db->singleResult()){
@@ -33,14 +33,11 @@ if(isset($_POST)){
         }
         else{
             $sql = "
-                INSERT INTO usuario_grupo(usuario_id, grupo_id, admin, dataEntrada, membroAceito, usuario_solicitante) VALUES
+                INSERT INTO usuario_contato(destinatario, remetente, dataEntrada) VALUES
                 (
-                    '".$result['id']."',
-                    '".$grupo."',
-                    0,
-                    NOW(),
-                    'A',
-                    ".$solicitante."
+                    ".$result['id'].",
+                    ".$solicitante.",
+                    NOW()
                 )
             ";
 

@@ -6,27 +6,13 @@ require_once "../db/db.php";
 $db = new DB();
 
 $db->query("
-    SELECT usuario.username FROM usuario_grupo
-    INNER JOIN usuario ON usuario_grupo.usuario_id = usuario.id
-    WHERE usuario_grupo.membroAceito = 'A'
-    AND usuario.usuarioAtivo = 1
-    AND usuario_grupo.usuario_solicitante = ".$_SESSION['usuario']['id']."
-    And usuario_grupo.admin = 0
-");
+    SELECT B.username FROM usuario_contato
+    INNER JOIN usuario AS A ON usuario_contato.remetente = A.id
+    INNER JOIN usuario AS B ON usuario_contato.destinatario = B.id
+    AND usuario_contato.remetente = ".$_SESSION['usuario']['id']
+);
 
 $contatos = $db->resultSet();
-
-// $db->query("
-//     SELECT usuario.username FROM usuario_grupo
-//     INNER JOIN usuario ON usuario_grupo.usuario_id = usuario.id
-//     INNER JOIN grupo ON usuario_grupo.grupo_id = grupo.id
-//     WHERE usuario_grupo.membroAceito = 'A'
-//     AND usuario_grupo.usuario_solicitante = ".$_SESSION['usuario']['id']."
-//     AND usuario.id != ".$_SESSION['usuario']['id']."
-//     AND usuario.usuarioAtivo = 1
-// ");
-
-// $contatos += $db->resultSet();
 
 ?>
 
