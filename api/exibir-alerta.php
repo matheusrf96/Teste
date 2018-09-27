@@ -5,8 +5,12 @@ require_once "../db/db.php";
 
 $db = new DB();
 
-if(isset($_GET)){
-    // Busca alerta
+header('Access-Control-Allow-Origin: *');
+header("Content-Type: application/json");
+
+if(isset($_GET['id_usuario']) && isset($_GET['id_alerta'])){
+    $idUsuario = $_GET['id_usuario'];
+    $idAlerta = $_GET['id_alerta'];
 
     $db->query("
         SELECT mensagem_usuario.*, usuario.username, usuario.primeiroNome, usuario.ultimoNome
@@ -14,27 +18,27 @@ if(isset($_GET)){
         INNER JOIN usuario ON mensagem_usuario.remetente_id = usuario.id
         WHERE mensagem_usuario.id = ?
     ");
-    $db->bind(1, $_GET['id']);
-    $result = $db->singleResult(); // Manda para a view
+    $db->bind(1, $idAlerta);
+    $result = $db->singleResult();
 
-    if($result['destinatario_id'] == $_SESSION['usuario']['id']){
-        // Atualiza como lida
-
+    if($result['destinatario_id'] == $idUsuario){
         $db->query("
             UPDATE mensagem_usuario
             SET lida = 1,
             dataLida = NOW()
             WHERE id = ?
         ");
-        $db->bind(1, $_GET['id']);
+        $db->bind(1, $idAlerta);
         $db->execute();
     }
     else{
-        header("Location: ../index.php");
+        echo "Erro banco.";
     }
+
+    echo json_encode($result);
 }
 else{
-    header("Location: ../index.php");
+    echo "Nenhum parâmetro foi passado";
 }
 
 ?>

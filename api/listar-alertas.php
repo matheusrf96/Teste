@@ -12,20 +12,15 @@ if(isset($_GET['id'])){
     $id = $_GET['id'];
 
     $db->query("
-        SELECT mensagem_usuario.id,
-            usuario.username,
-            usuario.msgPanicoPadrao, 
-            mensagem_usuario.dataCriacao, 
-            mensagem_usuario.lida 
-        FROM mensagem_usuario
+        SELECT mensagem_usuario.*, usuario.username FROM mensagem_usuario
         INNER JOIN usuario ON mensagem_usuario.remetente_id = usuario.id
-        WHERE mensagem_usuario.destinatario_id = ".$id."
-        ORDER BY mensagem_usuario.id DESC
+        WHERE destinatario_id = ".$id."
+        ORDER BY mensagem_usuario.dataCriacao DESC
     ");
-    $result['listaAlertas'] = $db->resultSet();
 
-    echo json_encode($result);
+    $alertas = $db->resultSet();
 
+    echo json_encode($alertas);
 }
 else{
     echo json_encode("Erro");

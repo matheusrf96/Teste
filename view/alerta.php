@@ -12,11 +12,11 @@ else{
 ?>
 <div class="container box-alerta-detalhes">
     <div>
-        <span class="float-right" id="data-alerta"><?php echo $remetente['dataCriacao']; ?></span>
+        <span class="float-right" id="data-alerta"><?php echo $result['dataCriacao']; ?></span>
     </div>
     <div class="text-center">
-        <h1><?php echo $remetente['username']; ?> ESTÁ EM APUROS!!!</h1>
-        <h3><b>Mensagem:</b> <?php echo $remetente['msgPanicoPadrao']; ?></h3>
+        <h1><?php echo $result['primeiroNome']." ".$result['ultimoNome']; ?> está em apuros!!!</h1>
+        <h3><b>Mensagem:</b> <?php echo $result['mensagem']; ?></h3>
     </div>
 </div>
 
