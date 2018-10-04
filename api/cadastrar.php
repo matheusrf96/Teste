@@ -4,15 +4,25 @@ require_once "../config.php";
 require_once "../db/db.php";
 require_once "../model/usuario.php";
 
-$db = new DB();
-
 header('Access-Control-Allow-Origin: *');
 header("Content-Type: application/json");
 
-if(isset($_GET['username']) && isset($_GET['email']) && isset($_GET['senha'])){
-    $username = $_GET['username'];
-    $email = $_GET['email'];
-    $senha = $_GET['senha'];
+$dados = file_get_contents("php://input");
+$dados = json_decode($dados);
+
+print_r($dados);
+
+$username = $dados->username;
+$email = $dados->email;
+$senha = $dados->senha;
+
+$db = new DB();
+
+if(isset($username) && isset($email) && isset($senha))
+// if(isset($_GET['username']) && isset($_GET['email']) && isset($_GET['senha'])){
+    // $username = $_GET['username'];
+    // $email = $_GET['email'];
+    // $senha = $_GET['senha'];
 
     $user = new Usuario($username, $email, $senha);
 
