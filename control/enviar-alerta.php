@@ -34,9 +34,6 @@ if(isset($_POST)){
             <a href='../view/main.php'> clique aqui</a>!
         ";
 
-        echo "<textarea>INSERT INTO mensagem_usuario(mensagem, remetente_id, destinatario_id, lida, dataCriacao) VALUES
-        (".$_SESSION['usuario']['msgPanicoPadrao'].",".$_SESSION['usuario']['id'].", ".$item['usuario_id'].", 0, NOW())</textarea>";
-
         header("refresh:20;url=../index.php");
     }
     else{

@@ -1,8 +1,8 @@
 <?php
 
 define("DB_HOST", "localhost");
-define("DB_USER", "admin");
-define("DB_PASS", "admin");
+define("DB_USER", "root");
+define("DB_PASS", "unincor");
 define("DB_NAME", "securehood");
 define("ASSETS_PATH", "/tcc/");
 define("ROOT_PATH", "/var/www/html/tcc/");

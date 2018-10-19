@@ -1,11 +1,11 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Content-Type");
+
 require_once "../config.php";
 require_once "../db/db.php";
 require_once "../model/usuario.php";
-
-header('Access-Control-Allow-Origin: *');
-header("Content-Type: application/json");
 
 $dados = file_get_contents("php://input");
 $dados = json_decode($dados);
@@ -18,7 +18,7 @@ $senha = $dados->senha;
 
 $db = new DB();
 
-if(isset($username) && isset($email) && isset($senha))
+if(isset($username) && isset($email) && isset($senha)){
 // if(isset($_GET['username']) && isset($_GET['email']) && isset($_GET['senha'])){
     // $username = $_GET['username'];
     // $email = $_GET['email'];
@@ -42,17 +42,16 @@ if(isset($username) && isset($email) && isset($senha))
         $db->query($sql);
 
         if(!$db->execute()){
-            echo "Falhou :( <br />";
-            echo "<textarea>".$sql."</textarea>";
+            echo json_encode(array('code' => 0, 'msg' => 'Erro! Execute banco'));
         }
         else{
-            echo "Cadastro realizado com sucesso!";
+            echo json_encode(array('code' => 1, 'msg' => 'Produto cadastrado com sucesso!'));
         }
     }catch(Exception $e){
-        echo "Erro de conexão com o banco: ".$e->getMessage();
+        echo json_encode(array('code' => 2, 'msg' => 'Erro! Try catch'));
     }
 }
 else{
-    echo "Algum parâmetro não foi definido.";
+    echo json_encode(array('code' => 0, 'msg' => 'Erro! Parâmetros'));
 }
 ?> 
