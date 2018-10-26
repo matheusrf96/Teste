@@ -15,7 +15,11 @@ else{
         <span class="float-right" id="data-alerta"><?php echo $result['dataCriacao']; ?></span>
     </div>
     <div class="text-center">
-        <h1><?php echo $result['primeiroNome']." ".$result['ultimoNome']; ?> está em apuros!!!</h1>
+        <?php if($result['primeiroNome']){ ?>
+            <h1><?php echo $result['primeiroNome']." ".$result['ultimoNome']; ?> está em apuros!!!</h1>
+        <?php }else{ ?>
+            <h1><?php echo $result['username']; ?> está em apuros!!!</h1>
+        <?php } ?>
         <h3><b>Mensagem:</b> <?php echo $result['mensagem']; ?></h3>
     </div>
 </div>

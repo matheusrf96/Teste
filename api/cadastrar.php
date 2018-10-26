@@ -10,8 +10,6 @@ require_once "../model/usuario.php";
 $dados = file_get_contents("php://input");
 $dados = json_decode($dados);
 
-print_r($dados);
-
 $username = $dados->username;
 $email = $dados->email;
 $senha = $dados->senha;
@@ -41,17 +39,17 @@ if(isset($username) && isset($email) && isset($senha)){
 
         $db->query($sql);
 
-        if(!$db->execute()){
-            echo json_encode(array('code' => 0, 'msg' => 'Erro! Execute banco'));
+        if($db->execute()){
+            echo json_encode(array('code' => 0, 'msg' => 'cadastrado com sucesso!'));
         }
         else{
-            echo json_encode(array('code' => 1, 'msg' => 'Produto cadastrado com sucesso!'));
+            echo json_encode(array('code' => 1, 'msg' => 'Erro! Execute banco'));
         }
     }catch(Exception $e){
         echo json_encode(array('code' => 2, 'msg' => 'Erro! Try catch'));
     }
 }
 else{
-    echo json_encode(array('code' => 0, 'msg' => 'Erro! Parâmetros'));
+    echo json_encode(array('code' => 3, 'msg' => 'Erro! Parâmetros'));
 }
 ?> 
